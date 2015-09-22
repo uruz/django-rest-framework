@@ -9,7 +9,7 @@ from django.utils.unittest import skipUnless
 
 from rest_framework import status
 from rest_framework.exceptions import APIException
-from rest_framework.response import Response
+from rest_framework.response import Responcose
 from rest_framework.test import APIRequestFactory
 from rest_framework.views import APIView
 from tests.models import BasicModel
@@ -45,7 +45,7 @@ class DBTransactionTests(TestCase):
     def tearDown(self):
         connections.databases['default']['ATOMIC_REQUESTS'] = False
 
-    def test_no_exception_conmmit_transaction(self):
+    def test_no_exception_commit_transaction(self):
         request = factory.post('/')
 
         with self.assertNumQueries(1):
